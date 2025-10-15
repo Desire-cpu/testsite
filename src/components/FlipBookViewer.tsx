@@ -179,35 +179,6 @@ const FlipBookViewer: React.FC<FlipBookViewerProps> = ({ fileUrl, onClose }) => 
           display: block;
           border-radius: 0.5em;
         }
-        .fbv-nav {
-          position: absolute;
-          bottom: 1.5rem;
-          left: 50%;
-          transform: translateX(-50%);
-          display: flex;
-          gap: 2rem;
-        }
-        .fbv-nav-btn {
-          width: 3em;
-          height: 3em;
-          border-radius: 50%;
-          background: rgba(10,10,10,0.45);
-          color: #fff;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.4em;
-          border: none;
-          cursor: pointer;
-          transition: background 0.2s;
-        }
-        .fbv-nav-btn:disabled {
-          opacity: 0.3;
-          cursor: default;
-        }
-        .fbv-nav-btn:not(:disabled):hover {
-          background: rgba(10,10,10,0.7);
-        }
         .fbv-instructions {
           position: absolute;
           bottom: -2.2rem;
@@ -326,28 +297,8 @@ const FlipBookViewer: React.FC<FlipBookViewerProps> = ({ fileUrl, onClose }) => 
                 ))}
               </HTMLFlipBook>
 
-              {/* Navigation controls for mobile */}
-              {isMobile && (
-                <div className="fbv-nav">
-                  <button
-                    className="fbv-nav-btn"
-                    onClick={() => flipBookRef.current?.flipPrev()}
-                    disabled={currentPage === 0}
-                  >
-                    &#8592;
-                  </button>
-                  <button
-                    className="fbv-nav-btn"
-                    onClick={() => flipBookRef.current?.flipNext()}
-                    disabled={currentPage >= pageImages.length - 1}
-                  >
-                    &#8594;
-                  </button>
-                </div>
-              )}
-
               <div className="fbv-instructions">
-                {isMobile ? "Swipe or use arrows to navigate" : "Click page edges to flip"}
+                {isMobile ? "Swipe to navigate" : "Click page edges to flip"}
               </div>
             </div>
           ) : (

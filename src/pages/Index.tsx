@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Download, Eye, Sparkles, Users, FolderOpen, Menu, X, Feather } from "lucide-react";
+import { BookOpen, Download, Eye, Sparkles, Users, FolderOpen, Menu, X, Feather, Music } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { db } from "@/integrations/firebase/client";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -48,7 +48,7 @@ const Index = () => {
   const [stats, setStats] = useState({
     totalMagazines: 0,
     registeredUsers: 0,
-    totalCategories: 0,
+    totalSongs: 0,
     totalPoems: 0,
   });
 
@@ -316,10 +316,10 @@ const Index = () => {
         <div className="container mx-auto px-3 sm:px-6 lg:px-8 text-center">
           <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-primary via-primary/80 to-secondary bg-clip-text text-transparent leading-tight">
-              Discover and Share Creative Magazines & Poems
+              Discover and Share Creative Magazines, Poems & Songs
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
-              Explore a vast collection of digital magazines and heartfelt poems created by talented artists from around the world.
+              Explore a vast collection of digital magazines, heartfelt poems, and inspiring songs created by talented artists from around the world.
               Share your favorites and connect with the creative community.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 lg:gap-6 px-2 sm:px-0">
@@ -340,7 +340,6 @@ const Index = () => {
                 Explore Magazines
                 <BookOpen className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
-              {/* NEW: Explore Poems Button */}
               <Button 
                 variant="outline" 
                 size="lg" 
@@ -349,6 +348,16 @@ const Index = () => {
               >
                 Explore Poems
                 <Feather className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+              </Button>
+              {/* NEW: Explore Songs Button */}
+              <Button 
+                variant="outline" 
+                size="lg" 
+                onClick={() => navigate('/songs')}
+                className="btn-modern px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base lg:text-lg h-auto border-2 w-full sm:w-auto"
+              >
+                Explore Songs
+                <Music className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
             </div>
           </div>
@@ -390,7 +399,7 @@ const Index = () => {
                 <p className="text-muted-foreground text-xs sm:text-sm lg:text-base">Categories</p>
               </CardContent>
             </Card>
-            {/* NEW: Poems */}
+            {/* Poems */}
             <Card className="card-hover glass border-0 text-center">
               <CardContent className="p-4 sm:p-6 lg:p-8 space-y-3 sm:space-y-4">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full bg-gradient-to-r from-purple-600 to-blue-400 flex items-center justify-center mb-3 sm:mb-4">
@@ -498,7 +507,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* NEW: Latest Poems Section */}
+      {/* Latest Poems Section */}
       <section className="py-8 sm:py-12 lg:py-16 xl:py-20 px-3 sm:px-0">
         <div className="container mx-auto px-3 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12 lg:mb-16 space-y-3 sm:space-y-4">
@@ -575,7 +584,7 @@ const Index = () => {
             </h2>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl opacity-90 leading-relaxed px-2 sm:px-0">
               Showcase your work, connect with fellow artists, and inspire the world with your creativity.
-              Sign up today and start sharing your digital magazines and poems!
+              Sign up today and start sharing your digital magazines, poems, and songs!
             </p>
             <Button 
               size="lg" 
