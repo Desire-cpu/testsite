@@ -10,7 +10,7 @@ const MagazineViewer = () => {
   const { magazine, loading } = useMagazine(id);
 
   const handleCloseViewer = () => {
-    navigate('/');
+    navigate('/dashboard');
   };
 
   if (loading) {
@@ -34,7 +34,7 @@ const MagazineViewer = () => {
             The magazine could not be found or failed to load.
           </p>
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/dashboard')}
             className="px-4 py-2 bg-primary text-primary-foreground rounded hover:bg-primary/90"
           >
             Go Back
@@ -54,7 +54,7 @@ const MagazineViewer = () => {
             This magazine doesn't have a file available for viewing.
           </p>
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/dashboard')}
             className="px-4 py-2 bg-primary text-primary-foreground rounded hover:bg-primary/90"
           >
             Go Back

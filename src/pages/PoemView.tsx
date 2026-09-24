@@ -57,8 +57,8 @@ const PoemView: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-card to-secondary/10">
       <div className="container mx-auto px-4 py-8 max-w-2xl">
-        <Button variant="ghost" className="mb-6 text-primary" onClick={() => navigate('/poems')}>
-          ← Back to Poems
+        <Button variant="ghost" className="mb-6 text-primary" onClick={() => navigate('/dashboard')}>
+          ← Back to Dashboard
         </Button>
         <div className="bg-card rounded-lg shadow-xl p-8">
           <h2 className="font-bold text-3xl text-primary mb-4 text-center font-serif">{poem.title}</h2>
@@ -67,14 +67,6 @@ const PoemView: React.FC = () => {
           </div>
           <div className="flex items-center justify-center mt-3 mb-2 gap-2">
             <SharePoemButton poemId={poem.id} authorId={poem.author_id} title={poem.title} />
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => navigate(`/artist/${poem.author_id}`)}
-              className="ml-2"
-            >
-              See Artist's Other Works
-            </Button>
           </div>
           <div className="font-serif text-center text-lg text-primary whitespace-pre-line leading-relaxed tracking-wide py-2 italic">
             {poem.content}

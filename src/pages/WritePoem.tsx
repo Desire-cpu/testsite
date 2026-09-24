@@ -45,7 +45,7 @@ const WritePoem: React.FC = () => {
         author_name: user.displayName || user.email || "Unknown",
         created_at: new Date().toISOString(),
       });
-      navigate("/poems");
+      navigate("/dashboard");
     } catch (err) {
       setError("Failed to submit poem. Try again.");
     } finally {
